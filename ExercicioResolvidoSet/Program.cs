@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace ExercicioResolvidoSet
 {
@@ -6,7 +7,28 @@ namespace ExercicioResolvidoSet
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.Write("Informe o caminho completo do arquivo: ");
+            string path = Console.ReadLine();
+
+            try
+            {
+                using (StreamReader sr = File.OpenText(path))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        string linha = sr.ReadLine();
+                        Console.WriteLine(linha);
+                    }
+
+                    Console.ReadKey();
+                }
+
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
         }
     }
 }
