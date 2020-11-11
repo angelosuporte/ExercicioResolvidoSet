@@ -26,5 +26,6 @@ namespace ExercicioResolvidoSet.Entities
             return Username.Equals(outro.Username);
 
         }
+
     }
 }
